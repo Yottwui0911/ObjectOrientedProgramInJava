@@ -84,6 +84,11 @@ public class Main {
 
 		for (Triangle triangle : triangles) {
 			isExist_3 = triangle.CalcArea() > 1000;
+			
+			// trueになれば抜ける
+			if(isExist_3){
+				break;
+			}
 		}
 
 		AnswerPrinter.Answer(3, isExist_3.toString());
