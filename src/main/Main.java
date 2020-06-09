@@ -73,7 +73,7 @@ public class Main {
 
 		// 課題2
 		List<String> answer_2 = triangles.stream()
-				.map(Triangle::CalcArea)
+				.map(Triangle::getArea)
 				.map(x -> BigDecimal.valueOf(x).setScale(2, RoundingMode.HALF_UP).toPlainString())
 				.collect(Collectors.toList());
 
@@ -83,7 +83,7 @@ public class Main {
 		Boolean isExist_3 = false;
 
 		for (Triangle triangle : triangles) {
-			isExist_3 = triangle.CalcArea() > 1000;
+			isExist_3 = triangle.getArea() > 1000;
 			
 			// trueになれば抜ける
 			if(isExist_3){
@@ -94,13 +94,13 @@ public class Main {
 		AnswerPrinter.Answer(3, isExist_3.toString());
 
 		// 課題4
-		Boolean isExist_4 = triangles.stream().anyMatch(x -> x.CalcArea() > 1000);
+		Boolean isExist_4 = triangles.stream().anyMatch(x -> x.getArea() > 1000);
 
 		AnswerPrinter.Answer(4, isExist_4.toString());
 
 		// 課題5
 		String answer_5 = triangles.stream()
-				.map(Triangle::CalcArea)
+				.map(Triangle::getArea)
 				.filter(x -> x > 1000)
 				.map(x -> BigDecimal.valueOf(x).setScale(2, RoundingMode.HALF_UP).toPlainString())
 				.findFirst()
@@ -110,14 +110,14 @@ public class Main {
 
 		// 課題6
 		long answer_6 = triangles.stream()
-				.filter(x -> x.CalcArea() > 1000)
+				.filter(x -> x.getArea() > 1000)
 				.count();
 
 		AnswerPrinter.Answer(6, Long.toString(answer_6));
 
 		// 課題7
 		Double answer_7 = triangles.stream()
-				.collect(Collectors.summarizingDouble(x -> x.CalcArea()))
+				.collect(Collectors.summarizingDouble(x -> x.getArea()))
 				.getAverage();
 
 		AnswerPrinter.Answer(7, BigDecimal.valueOf(answer_7).setScale(2, RoundingMode.HALF_UP).toPlainString());
@@ -125,8 +125,8 @@ public class Main {
 		// 課題8
 		List<String> answer_8 = triangles
 				.stream()
-				.sorted(Comparator.comparingDouble(Triangle::CalcArea))
-				.map(Triangle::CalcArea)
+				.sorted(Comparator.comparingDouble(Triangle::getArea))
+				.map(Triangle::getArea)
 				.sorted(Comparator.reverseOrder())
 				.limit(10)
 				.map(x -> BigDecimal.valueOf(x).setScale(2, RoundingMode.HALF_UP).toPlainString())
@@ -136,27 +136,27 @@ public class Main {
 
 		// 課題10
 		List<String> answer_10 = squares.stream()
-				.map(Square::CalcArea)
+				.map(Square::getArea)
 				.map(x -> BigDecimal.valueOf(x).setScale(2, RoundingMode.HALF_UP).toPlainString())
 				.collect(Collectors.toList());
 
 		AnswerPrinter.Answer(10, answer_10);
 
 		// 課題11
-		Boolean answer_11 = squares.stream().anyMatch(x -> x.CalcArea() > 1000);
+		Boolean answer_11 = squares.stream().anyMatch(x -> x.getArea() > 1000);
 
 		AnswerPrinter.Answer(11, answer_11.toString());
 
 		// 課題13
 		List<String> answer_13 = circles.stream()
-				.map(Circle::CalcArea)
+				.map(Circle::getArea)
 				.map(x -> BigDecimal.valueOf(x).setScale(2, RoundingMode.HALF_UP).toPlainString())
 				.collect(Collectors.toList());
 
 		AnswerPrinter.Answer(13, answer_13);
 
 		// 課題14
-		Boolean answer_14 = circles.stream().anyMatch(x -> x.CalcArea() > 1000);
+		Boolean answer_14 = circles.stream().anyMatch(x -> x.getArea() > 1000);
 
 		AnswerPrinter.Answer(14, answer_14.toString());
 

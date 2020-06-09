@@ -10,7 +10,7 @@ public class Circle implements Shape {
 		this.radius = builder.radius;
 	}
 
-	public Double CalcArea() {
+	public Double getArea() {
 		return Math.pow(this.radius, 2) * Math.PI;
 	}
 

@@ -12,7 +12,7 @@ public class Triangle implements Shape {
 		this.bottom = builder.bottom;
 	}
 
-	public Double CalcArea() {
+	public Double getArea() {
 		return this.height * this.bottom / 2.0;
 	}
 
